@@ -6,7 +6,7 @@
   "private": false,
   "scripts": {
     "prepublish": "npm run build",
-    "test": "npx jest  --reporters=default --reporters=jest-junit --collect-coverage",
+    "test": "npx jest --reporters=default --reporters=jest-junit --collect-coverage",
     "build": "npx tsc --declaration"
   },
   "peerDependencies": {
