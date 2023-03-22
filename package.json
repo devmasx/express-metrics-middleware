@@ -7,7 +7,7 @@
   "scripts": {
     "prepublish": "npm run build",
     "test": "npx jest --reporters=default --reporters=jest-junit --collect-coverage",
-    "build": "npx tsc --declaration"
+    "build": "rm -fr dist && npx tsc --declaration"
   },
   "peerDependencies": {
     "express": "x"
