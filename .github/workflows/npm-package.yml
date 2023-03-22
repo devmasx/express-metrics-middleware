@@ -46,16 +46,16 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Set up Nodejs 12
+      - name: Set up Nodejs 14
         uses: actions/setup-node@master
         with:
-          version: 12
+          version: 14
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build
-        run: npm build
+        run: npm run build
 
       - name: Publish to Npm
         run: |
