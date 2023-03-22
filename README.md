@@ -1,12 +1,12 @@
-## express-metrics-middleware
+## express-metrics-middleware-exporter
 
 ## Usage
 ```
-npm install express-metrics-middleware
+npm install express-metrics-middleware-exporter
 ```
 
 ```ts
-import { ICollector, metricsMiddleware } from 'express-metrics-middleware';
+import { ICollector, metricsMiddleware } from 'express-metrics-middleware-exporter';
 import express, { Request, Response } from 'express';
 
 const app = express();
