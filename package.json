@@ -1,12 +1,12 @@
 {
   "name": "express-metrics-middleware",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "",
   "author": "",
   "private": false,
   "scripts": {
     "prepublish": "npm run build",
-    "test": "npx jest",
+    "test": "npx jest --reporters=default --reporters=jest-junit --collect-coverage",
     "build": "npx tsc --declaration"
   },
   "peerDependencies": {
