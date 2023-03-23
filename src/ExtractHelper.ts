@@ -20,10 +20,17 @@ export class ExtractHelper {
     return request.method;
   }
 
-  route(request: IRquest, response?, { detectDynamicPath = false } = {}): string {
+  expressRoute(request: IRquest, response?, { detectDynamicPath = false } = {}): string {
+    if (detectDynamicPath) {
+      this.routeWithMark(request, response);
+    }
     if (request.route) {
       return request.route.path;
     }
+    return url.parse(request.originalUrl).pathname;
+  }
+
+  path(request: IRquest, response?): string {
     return url.parse(request.originalUrl).pathname;
   }
 

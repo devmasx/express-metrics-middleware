@@ -2,10 +2,11 @@ import { Request, Response, NextFunction } from 'express';
 import { ExtractHelper } from './ExtractHelper';
 
 export interface IMetricsData {
-  timeInMs: number;
   method: string;
-  route: string;
+  path: string;
   status: string;
+  expressRoute: string;
+  timeInMs: number;
   requestContentLength: number;
   responseContentLength: number;
 }
@@ -27,18 +28,18 @@ export const metricsMiddleware =
     response.on('finish', () => {
       const timeInMs = getTimeFrom(startAt);
       const method = extractHelper.method(request, response);
-      const route = extractHelper.route(request, response, {
-        detectDynamicPath,
-      });
+      const path = extractHelper.path(request, response);
+      const expressRoute = extractHelper.expressRoute(request, response, { detectDynamicPath });
       const status = extractHelper.statusCode(request, response);
 
       let requestContentLength = parseInt(request.headers['content-length'] || '0');
       let responseContentLength = parseInt(response.get('Content-Length') || '0');
       const metricsData = {
-        timeInMs,
         method,
-        route,
+        path,
         status,
+        timeInMs,
+        expressRoute,
         requestContentLength,
         responseContentLength,
       };

@@ -24,8 +24,9 @@ describe('GET /users', () => {
       objectContaining({
         // time: expect.any,
         method: 'GET',
-        route: '/users/:id',
+        path: '/users/1',
         status: '200',
+        expressRoute: '/users/:id',
         requestContentLength: 0,
         responseContentLength: 16,
       }),
@@ -42,7 +43,8 @@ describe('GET /users', () => {
       objectContaining({
         // time: expect.any,
         method: 'GET',
-        route: '/error',
+        path: '/error',
+        expressRoute: '/error',
         status: '500',
       }),
       objectContaining({ _consuming: false }),

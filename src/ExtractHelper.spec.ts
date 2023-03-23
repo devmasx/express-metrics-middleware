@@ -11,13 +11,20 @@ describe('ExtractHelper', () => {
 
   describe('.route', () => {
     it('with express app request', () => {
-      const request = { route: { path: '/users/:id' } };
-      expect(extractHelper.route(request)).toEqual('/users/:id');
+      const request = { originalUrl: 'http://localhost/users/1', route: { path: '/users/:id' } };
+      expect(extractHelper.path(request)).toEqual('/users/1');
     });
 
     it('without express app request', () => {
       const request = { originalUrl: 'http://localhost/users' };
-      expect(extractHelper.route(request)).toEqual('/users');
+      expect(extractHelper.path(request)).toEqual('/users');
+    });
+  });
+
+  describe('.expressRoute', () => {
+    it('with express app request', () => {
+      const request = { originalUrl: 'http://localhost/users/1', route: { path: '/users/:id' } };
+      expect(extractHelper.expressRoute(request)).toEqual('/users/:id');
     });
   });
 
