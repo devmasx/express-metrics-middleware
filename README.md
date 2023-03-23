@@ -16,11 +16,12 @@ const collector: ICollector = {
     console.log(metricsData);
     // {
     //   method: 'GET',
-    //   route: '/users/:id',
+    //   path: '/users/1',
     //   status: '200',
+    //   expressRoute: '/users/:id',
+    //   timeInMs: 2.489832,
     //   requestContentLength: 0,
     //   responseContentLength: 16,
-    //   timeInMs: 2.489832,
     // }
   },
 };
