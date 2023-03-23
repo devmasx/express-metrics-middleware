@@ -4,6 +4,7 @@
   "description": "",
   "author": "",
   "private": false,
+  "main": "dist/index.js",
   "scripts": {
     "prepublish": "npm run build",
     "test": "npx jest --reporters=default --reporters=jest-junit --collect-coverage",
